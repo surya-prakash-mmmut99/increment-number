@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <title>Document</title>
+    <style>
+        *{background-color: aqua;
+            padding: 0;
+            margin: 0;
+        }
+        .counter-counting{
+            display: inline-block;
+            text-align: center;
+              margin-left: 28vh;
+              margin-top: 30vh;
+
+        }
+        .counter-counting i{
+            text-align: center;
+            font-size:100px;
+            color: blue;
+        }
+        .counter{
+            font-family: algerian;
+            font-size:10vh;
+        }
+        span{
+            font-size: 30px;
+        }
+        .head{font-family: algerian;
+            text-transform: capitalize;
+            text-align: center;
+            margin-top:10vh;
+            font-size: 30px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="head"><h1>Increment Number with the help of JavaScript</h1></div>
+    <div class="counter-counting">
+        <i class="bi bi-cup-fill"></i>
+        <div class="counter" data-target="4000"></div>
+        <span>Project Completed</span>
+    </div>
+    <div class="counter-counting">
+        <i class="bi bi-person-hearts"></i>
+        <div class="counter" data-target="1500"></div>
+        <span>Our Happy Clients</span>
+    </div>
+    <div class="counter-counting">
+        <i class="bi bi-bookmarks-fill"></i>
+        <div class="counter" data-target="500"></div>
+        <span>OnGoing Project</span>
+    </div>
+
+    <script>
+        const counters=document.querySelectorAll('.counter');
+        counters.forEach((counter)=>{
+            counter.innerHTML=0;
+        
+            const updateCounter=()=>{
+                const targetCount = +counter.getAttribute('data-target');
+                // console.log(targetCount)
+               const startingCount = Number(counter.innerHTML);
+
+               const incr = targetCount/100;
+               if( startingCount<targetCount){
+                   counter.innerHTML=`${Math.round(startingCount+incr)}`;
+                   setTimeout(updateCounter,20)
+               }else{
+                   counter.innerHTML=targetCount;
+               }
+
+            }
+
+
+            updateCounter();
+
+        })
+
+
+    </script>
+    
+</body>
+</html>
